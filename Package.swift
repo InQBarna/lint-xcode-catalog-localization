@@ -6,11 +6,15 @@ let package = Package(
     products: [
         .executable(name: "LintLocalization", targets: ["LintLocalization"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.0.0"),
+    ],
     targets: [
         .executableTarget(
             name: "LintLocalization",
-            dependencies: []
+            dependencies: [
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ]
         ),
     ]
 )

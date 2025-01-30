@@ -5,6 +5,7 @@
 //  Created by Sergi Hernanz on 27/11/24.
 //
 
+import ArgumentParser
 import Foundation
 
 struct TranslationError {
@@ -130,43 +131,45 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
 }
 
 func getXliffFileNames(from folderPath: String) throws -> [String] {
-    let contents = try FileManager.default.contentsOfDirectory(atPath: folderPath)
-    let xclocDirectories = contents.filter { $0.hasSuffix(".xcloc") }
+    let folderURL = URL(fileURLWithPath: folderPath)
+    let contents = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
+    let xclocDirectories = contents.filter { $0.pathExtension == "xcloc" }
+    
     var xliffPaths: [String] = []
     
     for xclocDirectory in xclocDirectories {
-        let xclocPath = folderPath + xclocDirectory + "/Localized Contents/"
-        let xliffFiles = try FileManager.default.contentsOfDirectory(atPath: xclocPath)
+        let localizedContentsPath = xclocDirectory.appendingPathComponent("Localized Contents")
         
-        xliffPaths += xliffFiles.filter { $0.hasSuffix(".xliff") }
-            .map { xclocPath + $0 }
+        let xliffFiles = try FileManager.default.contentsOfDirectory(at: localizedContentsPath, includingPropertiesForKeys: nil)
+        
+        xliffPaths += xliffFiles.filter { $0.pathExtension == "xliff" }
+            .map { $0.path }
     }
     
     return xliffPaths
 }
 
-func main() {
-    let arguments = CommandLine.arguments
-    guard arguments.count > 1 else {
-        print("Error: Se debe proporcionar el path de la carpeta.")
-        exit(-1)
-    }
+struct LintLocalization: ParsableCommand {
+    @Argument(help: "The path to the folder containing .xcloc directories")
+    var folderPath: String
     
-    let folderPath = arguments[1]
-    let validator = XliffValidator()
-    
-    do {
-        let xliffPaths = try getXliffFileNames(from: folderPath)
+    func run() throws {
+        let validator = XliffValidator()
         
-        let errors = validator.validateXliffFiles(at: xliffPaths)
-        validator.generateFinalReport(from: errors)
-        if errors.count > 0 {
-	    exit(-1)
+        do {
+            let xliffPaths = try getXliffFileNames(from: folderPath)
+            
+            let errors = validator.validateXliffFiles(at: xliffPaths)
+            validator.generateFinalReport(from: errors)
+            
+            if errors.count > 0 {
+                throw ExitCode.failure
+            }
+        } catch {
+            print("Error retrieving .xliff files: \(error.localizedDescription)")
+            throw ExitCode.failure
         }
-    } catch {
-        print("Error al obtener los archivos .xliff: \(error.localizedDescription)")
-	exit(-1)
     }
 }
 
-main()
+LintLocalization.main()
