@@ -7,7 +7,7 @@ Lint Xcode localization content using string catalogs
 ```mint install InQBarna/lint-xcode-catalog-localization```
 
 ### Cloning
-```git clone https://github.com/InQBarna/lint-xcode-catalog-localization.git
+```git clone https://github.com/InQBarna/lint-xcode-catalog-localization.git```
 
 ## Usage (Version 0.1.0)
 
