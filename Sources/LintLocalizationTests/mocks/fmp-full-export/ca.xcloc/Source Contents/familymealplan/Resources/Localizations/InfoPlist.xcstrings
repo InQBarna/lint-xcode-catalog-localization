@@ -1,0 +1,28 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "CFBundleName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "familymealplanner"
+          }
+        }
+      }
+    },
+    "NSUserNotificationsUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificarte de los cambios en tus planificaciones compartidas"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="familymealplan/Resources/Localizations/InfoPlist.xcstrings" source-language="es" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="16.1" build-num="16B40"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>familymealplanner</source>
+        <target state="translated">familymealplanner</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NSUserNotificationsUsageDescription" xml:space="preserve">
+        <source>Notificarte de los cambios en tus planificaciones compartidas</source>
+        <target state="translated">Notify you about changes on your shared schedules</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="familymealplan/Resources/Localizations/Localizable.xcstrings" source-language="es" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="16.1" build-num="16B40"/>
+    </header>
+    <body>
+      <trans-unit id="" xml:space="preserve">
+        <source/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Local notifications" xml:space="preserve">
+        <source>Local notifications</source>
+        <target state="translated">Local notifications</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Social Login" xml:space="preserve">
+        <source>Social Login</source>
+        <target state="new"/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Under Maintenance" xml:space="preserve">
+        <source>Under Maintenance</source>
+        <target state="new"/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Use remote" xml:space="preserve">
+        <source>Use remote</source>
+        <target state="translated">Use remote</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Use remote config" xml:space="preserve">
+        <source>Use remote config</source>
+        <target state="new"/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinviation.warning.willloosecontent" xml:space="preserve">
+        <source>Al aceptar la invitación, perderás tu planificación actual, solo verás las entradas del plan que estás a punto de aceptar.</source>
+        <target state="translated">By accepting the invitation, you will lose your current schedule and will only see the entries for the plan you are about to accept.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alert.autoinvite" xml:space="preserve">
+        <source>¿Has abierto tu propia invitacion melón? No puedes invitarte a tu propio plan!</source>
+        <target state="translated">Have you opened your own invitation, Clod? You can't invite yourself to your own plan!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alert.button.register" xml:space="preserve">
+        <source>Registrarme</source>
+        <target state="translated">Sign up</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alert.button.reject" xml:space="preserve">
+        <source>Rechazar</source>
+        <target state="translated">Decline</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alert.title.invitedtoplanby %@" xml:space="preserve">
+        <source>Has sido invitado al plan de %@</source>
+        <target state="translated">You have been invited to "%@"'s plan</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alertregister.title.invitedtoplanby %@" xml:space="preserve">
+        <source>Has sido invitado al plan de %@.
+Necesitas registrarte en Family meal planner antes de aceptar la invitación.</source>
+        <target state="translated">You have been invited to "%@"'s plan.
+You need to register for Family meal planner before accepting the invitation.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.alreadysharedwith %@" xml:space="preserve">
+        <source>Ya estás compartiendo el plan con "%@"</source>
+        <target state="translated">You are already sharing the plan with "%@"</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.completed.title" xml:space="preserve">
+        <source>¡Empieza a planificar en equipo!</source>
+        <target state="translated">Start planning as a team!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.from %@" xml:space="preserve">
+        <source>Aceptando la invitación de %@...</source>
+        <target state="translated">Accepting "%@"'s invitation...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.linkedto %@" xml:space="preserve">
+        <source>Ahora ya estás vinculado al plan de %@.</source>
+        <target state="translated">You are now linked to "%@"'s plan.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.notFound" xml:space="preserve">
+        <source>No hemos encontrado la invitación que has abierto, o bien ya la has usado, o ha caducado</source>
+        <target state="translated">We couldn't find the invitation you opened, either you've already used it, or it has expired.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.warning.switching" xml:space="preserve">
+        <source>Otros usuarios están vinculados a tu plan y dependen de él.
+Si aún quieres cambiar de compañeros... abandona primero tu plan y vuelve a abrir esta invitación.</source>
+        <target state="translated">Other users are tied to your plan and depend on it.
+If you still want to change partners... first leave your plan and reopen this invitation.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitation.warning.willlooselinkto %@" xml:space="preserve">
+        <source>Al aceptar esta invitación, perderós tu vinculación actual con "%@"</source>
+        <target state="translated">By accepting this invitation, you will lose your current connection with "%@"</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="acceptinvitations.error" xml:space="preserve">
+        <source>Ha ocurrido un error al aceptar la invitación.</source>
+        <target state="translated">An error occurred while accepting the invitation.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.accesstemporarilydisabled" xml:space="preserve">
+        <source>El acceso a esta cuenta ha sido temporalmente deshabilitado. Seguramente porque llevas un rato intentando recordar tu contraseño. Vuelve a probar en un rato</source>
+        <target state="translated">Access to this account has been temporarily disabled. This is probably because you have been trying to remember your password for a while. Please try again later.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.addressalreadyinuse" xml:space="preserve">
+        <source>Este correo electrónico ya se ha usado en otra cuenta de familymealplanner. O no... (eso sería información confidencial) pero no lo puedes usar.</source>
+        <target state="translated">This email has already been used on another familymealplanner account. Or not... (that would be confidential information) but you cannot use it.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.invalidusernameorpassword" xml:space="preserve">
+        <source>Correo y/o contraseña inválidos.</source>
+        <target state="translated">Invalid email and/or password.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.loading.deletingaccount" xml:space="preserve">
+        <source>Borrando la cuenta...</source>
+        <target state="translated">Deleting the account...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.loading.loggingin" xml:space="preserve">
+        <source>Iniciando sesión…</source>
+        <target state="translated">Signing in…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.loading.logginginas %@" xml:space="preserve">
+        <source>Entrando como "%@"...</source>
+        <target state="translated">Logging in as "%@"...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.loading.loggingout" xml:space="preserve">
+        <source>Saliendo de la cuenta...</source>
+        <target state="translated">Leaving the account...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="account.loading.registeringas %@" xml:space="preserve">
+        <source>Registrándote como "%@"...</source>
+        <target state="translated">Registering as "%@"...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="common.search" xml:space="preserve">
+        <source>Buscar</source>
+        <target state="translated">Search</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="continue.with.apple" xml:space="preserve">
+        <source>Continuar con Apple</source>
+        <target state="translated">Continue with Apple</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="continue.with.google" xml:space="preserve">
+        <source>Continuar con Google</source>
+        <target state="translated">Continue with Google</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="editmeal.addnew" xml:space="preserve">
+        <source>Añadir nuevo</source>
+        <target state="translated">Add new</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="editmeal.courses.title.general" xml:space="preserve">
+        <source>Librería</source>
+        <target state="translated">Catalogue</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="editmeal.courses.title.user" xml:space="preserve">
+        <source>Mis platos</source>
+        <target state="translated">My courses
+</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="editmeal.empty.placeholder" xml:space="preserve">
+        <source>¡Todavia no has seleccionado nada para comer!</source>
+        <target state="translated">You haven't selected anything to eat yet!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="editmeal.meals.header" xml:space="preserve">
+        <source>PLATOS</source>
+        <target state="translated">COURSES</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.alert.message" xml:space="preserve">
+        <source>Introduce tu correo y te enviaremos un correo con instrucciones para recuperar tu contraseña para FMP.</source>
+        <target state="translated">Enter your email and we will send you an email with instructions to recover your FMP password.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.alert.title" xml:space="preserve">
+        <source>Recuperación de contraseña.</source>
+        <target state="translated">Password recovery.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.email.placeholder" xml:space="preserve">
+        <source>CORREO</source>
+        <target state="translated">EMAIL</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.submitbutton" xml:space="preserve">
+        <source>Recuperar contraseña</source>
+        <target state="translated">Recover password</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.submitbutton.loading" xml:space="preserve">
+        <source>Recuperando contraseña...</source>
+        <target state="translated">Recovering password...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.success.ctabutton" xml:space="preserve">
+        <source>Continuar</source>
+        <target state="translated">Continue</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="forgot.success.message %@" xml:space="preserve">
+        <source>Se ha enviado un correo a tu cuenta %@ con instrucciones para recuperar tu contraseña.</source>
+        <target state="translated">An email has been sent to your account %@ with instructions to recover your password.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.abandoning" xml:space="preserve">
+        <source>Abandonando tu plan actual...</source>
+        <target state="translated">Abandoning your current plan...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.confirmleavealert.linked" xml:space="preserve">
+        <source>¿Estás seguro de que quieres abandonar la planificación? El resto de tus compañeros seguirán planificando sin ti.</source>
+        <target state="translated">Are you sure you want to stop planning? The rest of your teammates will continue planning without you.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.confirmleavealert.owner" xml:space="preserve">
+        <source>¿Estás seguro de que quieres abandonar la planificación? Si abandonas, el primero de tus compañeros pasará a ser el propietario del plan que compartís.</source>
+        <target state="translated">Are you sure you want to leave the plan? If you leave, the first of your teammates will become the owner of the plan you are sharing.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.createInvite.error" xml:space="preserve">
+        <source>No se ha podido crear tu invitación, prueba por favor más tarde.</source>
+        <target state="translated">Your invitation could not be created, please try again later.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.creatinginvite" xml:space="preserve">
+        <source>Creando invitación...</source>
+        <target state="translated">Creating invitation...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.empty.share.subtitle" xml:space="preserve">
+        <source>Selecciona "Enviar invitación"</source>
+        <target state="translated">Select "Send Invitation"</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.empty.share.title" xml:space="preserve">
+        <source>Todavía no has compartido tú planning con ningún usuario</source>
+        <target state="translated">You have not yet shared your planning with any user</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.header.owner" xml:space="preserve">
+        <source>CREADOR DE LA PLANIFICACIÓN</source>
+        <target state="translated">CREATOR OF PLANNING</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.header.sharedwith" xml:space="preserve">
+        <source>Planning compartido con</source>
+        <target state="translated">Planning shared with</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.leavelinked" xml:space="preserve">
+        <source>Abandonar planificación</source>
+        <target state="translated">Abandon planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.removinguser" xml:space="preserve">
+        <source>Actualzando los invitados de tu plan.</source>
+        <target state="translated">Updating your plan's guests.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.send" xml:space="preserve">
+        <source>Enviar invitación</source>
+        <target state="translated">Send invitation</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.shared" xml:space="preserve">
+        <source>Planificación compartida</source>
+        <target state="translated">Shared planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.sharemyplan" xml:space="preserve">
+        <source>Compartir mi planificación</source>
+        <target state="translated">Share my planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="invitations.stopsharing" xml:space="preserve">
+        <source>Dejar de compartir mi planning</source>
+        <target state="translated">Stop sharing my planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.account.closesession" xml:space="preserve">
+        <source>Cerrar sesión</source>
+        <target state="translated">Log out</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.account.deletaaccount" xml:space="preserve">
+        <source>Borrar cuenta</source>
+        <target state="translated">Delete account</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.account.header" xml:space="preserve">
+        <source>CUENTA</source>
+        <target state="translated">ACCOUNT</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.account.invalidusername" xml:space="preserve">
+        <source>El nombre de usuario no es válido</source>
+        <target state="translated">Invalid username</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.cantdeleteaccount.button.seeshares" xml:space="preserve">
+        <source>Ver "compartir mi plan"</source>
+        <target state="translated">See "share my plan"</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.cantdeleteaccount.title" xml:space="preserve">
+        <source>Eres el propietario del plan que estás compartiendo, así que no puedes borrar tu cuenta, primero abandona el plan for favor.</source>
+        <target state="translated">You are the owner of the plan you are sharing, so you cannot delete your account, please leave the plan first.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.closesession.button.close" xml:space="preserve">
+        <source>Cerrar</source>
+        <target state="translated">Close</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.closesession.title" xml:space="preserve">
+        <source>¿Estás seguro de que quieres cerrar sesión? Perderás acceso a tu planificación actual y verás una nueva planificación en blanco.</source>
+        <target state="translated">Are you sure you want to log out? You will lose access to your current schedule and will see a new blank schedule.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.deleteaccount" xml:space="preserve">
+        <source>Para eliminar la cuenta de usuario debes introducir la contraseña</source>
+        <target state="translated">To delete the user account you must enter the password</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.deleteaccount.button.delete" xml:space="preserve">
+        <source>Borrar cuenta</source>
+        <target state="translated">Delete account</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.alert.deleteaccount.title" xml:space="preserve">
+        <source>Eliminar cuenta de usuario</source>
+        <target state="translated">Delete user account</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notification.daily.explained" xml:space="preserve">
+        <source>Recuerda cada día tu menú, que no te pille con la nevera vacía.</source>
+        <target state="translated">Remember your menu every day, so you don't get caught with an empty fridge.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notification.enableonsettings" xml:space="preserve">
+        <source>No podremos recordarte tu plan. Habilita las notificaciones en ajustes del dispositivo para no olvidar nada.</source>
+        <target state="translated">We won't be able to remind you about your plan. Enable notifications in your device settings so you don't forget anything.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notification.enableonsettings.cta" xml:space="preserve">
+        <source>Ir a la configuración</source>
+        <target state="translated">Go to settings</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notification.enableonsettings.title" xml:space="preserve">
+        <source>Las notificaciones no están activadas</source>
+        <target state="translated">Notifications are not enabled</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notification.weekly.explained" xml:space="preserve">
+        <source>Recuerda programar semanalmente tus recetas</source>
+        <target state="translated">Remember to schedule your recipes weekly</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notifications.header" xml:space="preserve">
+        <source>NOTIFICACIONES</source>
+        <target state="translated">NOTIFICATIONS</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notifications.row.daily" xml:space="preserve">
+        <source>Diarias</source>
+        <target state="translated">Daily</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.notifications.row.weekly" xml:space="preserve">
+        <source>Semanales</source>
+        <target state="translated">Weekly</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.register.button" xml:space="preserve">
+        <source>Regístrate</source>
+        <target state="translated">Sign up</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.register.message" xml:space="preserve">
+        <source>Para tener más funcionalidades en la app te aconsejamos que te registres.</source>
+        <target state="translated">To have more features in the app we advise you to register.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.header.share" xml:space="preserve">
+        <source>COMPARTIR</source>
+        <target state="translated">SHARE</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.header.shared" xml:space="preserve">
+        <source>COMPARTIDO</source>
+        <target state="translated">SHARED</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row" xml:space="preserve">
+        <source>Compartir mi planificación</source>
+        <target state="translated">Share my planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.planownedby %@" xml:space="preserve">
+        <source>Plan de %@</source>
+        <target state="translated">"%@"'s plan</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.subtitle.sharedwithmany %lld|==|plural.one" xml:space="preserve">
+        <source>Plan compartido con %lld usuario</source>
+        <target state="translated">Plan shared with %lld user</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.subtitle.sharedwithmany %lld|==|plural.other" xml:space="preserve">
+        <source>Plan compartido con %lld usuarios</source>
+        <target state="translated">Plan shared with %lld users</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.subtitle.sharedwithuser %@" xml:space="preserve">
+        <source>Plan compartido con %@</source>
+        <target state="translated">Plan shared with "%@"</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.subtitle.sharedwithyou" xml:space="preserve">
+        <source>Plan compartido contigo</source>
+        <target state="translated">Plan shared with you</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="myaccount.share.row.subtitle.unshared" xml:space="preserve">
+        <source>No has compartido tu planificación</source>
+        <target state="translated">You have not shared your planning</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="notifications.daily.title" xml:space="preserve">
+        <source>Recuerda tu plan</source>
+        <target state="translated">Remember your plan</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="notifications.weekly.done.body" xml:space="preserve">
+        <source>¡¡Bien hecho!! Parece que tienes planificada la siguiente semana.</source>
+        <target state="translated">Well done! Looks like you have the next week planned out.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="notifications.weekly.missing.body" xml:space="preserve">
+        <source>¡Prueba hoy a planificar la siguiente semana entera!</source>
+        <target state="translated">Try planning the entire next week today!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="notifications.weekly.partial.body" xml:space="preserve">
+        <source>Tu planificación termina pronto: %@. ¡Completa hoy tu planificación semanal!</source>
+        <target state="translated">Your schedule ends soon: %@. Complete your weekly schedule today!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="notifications.weekly.title" xml:space="preserve">
+        <source>Es hora de planificar.</source>
+        <target state="translated">It's time to plan.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="or.continue.with" xml:space="preserve">
+        <source>O</source>
+        <target state="translated">OR</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="plan.snackbar.synching" xml:space="preserve">
+        <source>Sincronizando tu plan...</source>
+        <target state="translated">Synchronizing your plan...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="push.permissions_message" xml:space="preserve">
+        <source>Queremos mandarte notificaciones cuando tus planificaciones compartidas cambian.</source>
+        <target state="translated">We want to send you notifications when your shared plans have updates from your mates.
+
+.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="push.planmodified" xml:space="preserve">
+        <source>%@ ha modificado la planificación que compartís.</source>
+        <target state="translated">%@ has modified the schedule you shared.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="register.gotosignin.title" xml:space="preserve">
+        <source>¿Ya tienes una cuenta en Family Meal Planner?</source>
+        <target state="translated">Do you already have a Family Meal Planner account?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.afternoonsnack" xml:space="preserve">
+        <source>Merienda</source>
+        <target state="translated">Afternoon snack</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.alert.accept" xml:space="preserve">
+        <source>Aceptar</source>
+        <target state="translated">Accept</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.alert.button.cancel" xml:space="preserve">
+        <source>Cancelar</source>
+        <target state="translated">Cancel</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.alert.gotit" xml:space="preserve">
+        <source>Entendido</source>
+        <target state="translated">Understood</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.appname" xml:space="preserve">
+        <source>Family Meal Planner</source>
+        <target state="translated">Family Meal Planner</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.breakfast" xml:space="preserve">
+        <source>Desayuno</source>
+        <target state="translated">Breakfast</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.button.retry" xml:space="preserve">
+        <source>Reintentar</source>
+        <target state="translated">Retry</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.cancelled" xml:space="preserve">
+        <source>La operación ha sido cancelada.</source>
+        <target state="translated">The operation has been cancelled.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.dinner" xml:space="preserve">
+        <source>Cena</source>
+        <target state="translated">Dinner</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.emmrestricted" xml:space="preserve">
+        <source>La operación está restringida en este dispositivo debido a las políticas de la empresa.</source>
+        <target state="translated">The operation is restricted on this device due to company policies.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.loading" xml:space="preserve">
+        <source>Cargando...</source>
+        <target state="translated">Loading...</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.lunch" xml:space="preserve">
+        <source>Comida</source>
+        <target state="translated">Lunch</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.noconnection" xml:space="preserve">
+        <source>No hay conexión</source>
+        <target state="translated">No connection</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.notfounderror" xml:space="preserve">
+        <source>Lo sentimos, no hemos encontrado lo que estás buscando.</source>
+        <target state="translated">Sorry, we couldn't find what you were looking for.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.offlineerror" xml:space="preserve">
+        <source>Ups, parece que estás sin conexión al servicio.</source>
+        <target state="translated">Oops, it looks like you're offline.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="shared.unknownerror" xml:space="preserve">
+        <source>Ups... ha ocurrido un error "desconocido".</source>
+        <target state="translated">Oops... an "unknown" error has occurred.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.email.header" xml:space="preserve">
+        <source>CORREO</source>
+        <target state="translated">MAIL</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.email.placeholder" xml:space="preserve">
+        <source>Introduce tu correo electrónico</source>
+        <target state="translated">Enter your email</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.email.validationerror" xml:space="preserve">
+        <source>Formato de correo inválido</source>
+        <target state="translated">Invalid email format</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.forgotpassword" xml:space="preserve">
+        <source>¿Has olvidado tu contraseña?</source>
+        <target state="translated">Have you forgotten your password?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.gotoregister" xml:space="preserve">
+        <source>Regístrate con tu correo</source>
+        <target state="translated">Register with your email</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.password.header" xml:space="preserve">
+        <source>CONTRASEÑA</source>
+        <target state="translated">PASSWORD</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.password.placeholder" xml:space="preserve">
+        <source>********</source>
+        <target state="translated">********</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.password.validationerror" xml:space="preserve">
+        <source>La contraseña no tiene la longitud mínima</source>
+        <target state="translated">The password does not have the minimum length</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.signinbutton" xml:space="preserve">
+        <source>Iniciar sesión</source>
+        <target state="translated">Login</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signin.signinheader" xml:space="preserve">
+        <source>Iniciar sesión</source>
+        <target state="translated">Login</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.button.register" xml:space="preserve">
+        <source>Regístrame</source>
+        <target state="translated">Sign me up</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.email.header" xml:space="preserve">
+        <source>CORREO</source>
+        <target state="translated">EMAIL</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.email.placeholder" xml:space="preserve">
+        <source>Introduce tu correo electrónico</source>
+        <target state="translated">Enter your email</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.email.validationerror" xml:space="preserve">
+        <source>Formato de correo inválido</source>
+        <target state="translated">Invalid email format</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.gotosignin" xml:space="preserve">
+        <source>Inicia sesión</source>
+        <target state="translated">Already have an account? Sign in</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.nickname.validationerror" xml:space="preserve">
+        <source>Utiliza 5 caracteres mínimo y sin signos especiales</source>
+        <target state="translated">Use at least 5 characters and no special signs</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.password.header" xml:space="preserve">
+        <source>CONTRASEÑA</source>
+        <target state="translated">PASSWORD</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.password.placeholder" xml:space="preserve">
+        <source>Introduce tu contraseña</source>
+        <target state="translated">Enter your password</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.password.validationerror" xml:space="preserve">
+        <source>Contraseña inválida: debe contener al menos 6 caracteres, una mayúscula y un carácter especial, y que el último carácter se escriba en un minuto impar ;)</source>
+        <target state="translated">Invalid password: must contain at least 6 characters, one uppercase and one special character, and the last character must be entered within an odd minute ;)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.title" xml:space="preserve">
+        <source>Registro</source>
+        <target state="translated">Sign up</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.user.header" xml:space="preserve">
+        <source>NOMBRE DE USUARIO</source>
+        <target state="translated">USER NAME</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="signup.user.placeholder" xml:space="preserve">
+        <source>El nombre que otros usuarios verán</source>
+        <target state="translated">The name that other users will see</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.button.signup" xml:space="preserve">
+        <source>Registrate con tu correo</source>
+        <target state="translated">Register with your email</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.forceUpdate" xml:space="preserve">
+        <source>Actualízate a la última versión para seguir disfrutando de Family Meal Planner!</source>
+        <target state="translated">Please upgrade to the latest version to continue enjoying Family Meal Planner!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.forceUpdate.cta" xml:space="preserve">
+        <source>Descargar la última versión</source>
+        <target state="translated">Download the latest version</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.forceUpdate.title" xml:space="preserve">
+        <source>Lo sentimos, pero la versión que usas es demasiado vieja.</source>
+        <target state="translated">Sorry, but the version you are using is too old.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.message" xml:space="preserve">
+        <source>Bienvenido a Family Meal Planner!</source>
+        <target state="translated">Welcome to Family Meal Planner!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.subtitle" xml:space="preserve">
+        <source>Crea y sincroniza tu planificación con los miembros de tu familia.</source>
+        <target state="translated">Create and synchronize your planning with your family members.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.underMaintenance.title" xml:space="preserve">
+        <source>En mantenimiento</source>
+        <target state="translated">Under maintenance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="welcome.undermaintenance" xml:space="preserve">
+        <source>El servicio no está disponible en este momento, intente más tarde por favor.</source>
+        <target state="translated">The service is not available at this time, please try again later.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="‼️ You should never see this label, only during deep navigation stack release transitions ‼️" xml:space="preserve">
+        <source>‼️ You should never see this label, only during deep navigation stack release transitions ‼️</source>
+        <target state="new"/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="‼️ You should never see this label, only during releasing transitions ‼️" xml:space="preserve">
+        <source>‼️ You should never see this label, only during releasing transitions ‼️</source>
+        <target state="translated">‼️ You should never see this label, only during releasing transitions ‼️</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

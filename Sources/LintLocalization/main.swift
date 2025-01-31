@@ -8,7 +8,7 @@
 import ArgumentParser
 import Foundation
 
-struct TranslationError {
+struct TranslationError: Equatable {
     let language: String
     let key: String
     let description: String
@@ -149,6 +149,7 @@ func getXliffFileNames(from folderPath: String) throws -> [String] {
     return xliffPaths
 }
 
+
 struct LintLocalization: ParsableCommand {
     @Argument(help: "The path to the folder containing .xcloc directories")
     var folderPath: String
@@ -166,8 +167,13 @@ struct LintLocalization: ParsableCommand {
                 throw ExitCode.failure
             }
         } catch {
-            print("Error retrieving .xliff files: \(error.localizedDescription)")
-            throw ExitCode.failure
+            if let exitByCode = error as? ExitCode,
+               exitByCode == .failure {
+                throw ExitCode.failure
+            } else {
+                print("Error linting: \(error.localizedDescription)")
+                throw ExitCode.failure
+            }
         }
     }
 }

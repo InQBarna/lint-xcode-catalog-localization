@@ -1,0 +1,1605 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "" : {
+
+    },
+    "‼️ You should never see this label, only during deep navigation stack release transitions ‼️" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‼️ You should never see this label, only during deep navigation stack release transitions ‼️"
+          }
+        }
+      }
+    },
+    "‼️ You should never see this label, only during releasing transitions ‼️" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‼️ You should never see this label, only during releasing transitions ‼️"
+          }
+        }
+      }
+    },
+    "acceptinviation.warning.willloosecontent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al aceptar la invitación, perderás tu planificación actual, solo verás las entradas del plan que estás a punto de aceptar."
+          }
+        }
+      }
+    },
+    "acceptinvitation.alert.autoinvite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Has abierto tu propia invitacion melón? No puedes invitarte a tu propio plan!"
+          }
+        }
+      }
+    },
+    "acceptinvitation.alert.button.register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrarme"
+          }
+        }
+      }
+    },
+    "acceptinvitation.alert.button.reject" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechazar"
+          }
+        }
+      }
+    },
+    "acceptinvitation.alert.title.invitedtoplanby %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has sido invitado al plan de %@"
+          }
+        }
+      }
+    },
+    "acceptinvitation.alertregister.title.invitedtoplanby %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has sido invitado al plan de %@.\nNecesitas registrarte en Family meal planner antes de aceptar la invitación."
+          }
+        }
+      }
+    },
+    "acceptinvitation.alreadysharedwith %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya estás compartiendo el plan con \"%@\""
+          }
+        }
+      }
+    },
+    "acceptinvitation.completed.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Empieza a planificar en equipo!"
+          }
+        }
+      }
+    },
+    "acceptinvitation.from %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptando la invitación de %@..."
+          }
+        }
+      }
+    },
+    "acceptinvitation.linkedto %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahora ya estás vinculado al plan de %@."
+          }
+        }
+      }
+    },
+    "acceptinvitation.notFound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hemos encontrado la invitación que has abierto, o bien ya la has usado, o ha caducado"
+          }
+        }
+      }
+    },
+    "acceptinvitation.warning.switching" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otros usuarios están vinculados a tu plan y dependen de él.\nSi aún quieres cambiar de compañeros... abandona primero tu plan y vuelve a abrir esta invitación."
+          }
+        }
+      }
+    },
+    "acceptinvitation.warning.willlooselinkto %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al aceptar esta invitación, perderós tu vinculación actual con \"%@\""
+          }
+        }
+      }
+    },
+    "acceptinvitations.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ocurrido un error al aceptar la invitación."
+          }
+        }
+      }
+    },
+    "account.accesstemporarilydisabled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El acceso a esta cuenta ha sido temporalmente deshabilitado. Seguramente porque llevas un rato intentando recordar tu contraseño. Vuelve a probar en un rato"
+          }
+        }
+      }
+    },
+    "account.addressalreadyinuse" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este correo electrónico ya se ha usado en otra cuenta de familymealplanner. O no... (eso sería información confidencial) pero no lo puedes usar."
+          }
+        }
+      }
+    },
+    "account.invalidusernameorpassword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Correo y/o contraseña inválidos."
+          }
+        }
+      }
+    },
+    "account.loading.deletingaccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrando la cuenta..."
+          }
+        }
+      }
+    },
+    "account.loading.loggingin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciando sesión…"
+          }
+        }
+      }
+    },
+    "account.loading.logginginas %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrando como \"%@\"..."
+          }
+        }
+      }
+    },
+    "account.loading.loggingout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saliendo de la cuenta..."
+          }
+        }
+      }
+    },
+    "account.loading.registeringas %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrándote como \"%@\"..."
+          }
+        }
+      }
+    },
+    "common.search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar"
+          }
+        }
+      }
+    },
+    "continue.with.apple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar con Apple"
+          }
+        }
+      }
+    },
+    "continue.with.google" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar con Google"
+          }
+        }
+      }
+    },
+    "editmeal.addnew" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir nuevo"
+          }
+        }
+      }
+    },
+    "editmeal.courses.title.general" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Librería"
+          }
+        }
+      }
+    },
+    "editmeal.courses.title.user" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis platos"
+          }
+        }
+      }
+    },
+    "editmeal.empty.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Todavia no has seleccionado nada para comer!"
+          }
+        }
+      }
+    },
+    "editmeal.meals.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PLATOS"
+          }
+        }
+      }
+    },
+    "forgot.alert.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu correo y te enviaremos un correo con instrucciones para recuperar tu contraseña para FMP."
+          }
+        }
+      }
+    },
+    "forgot.alert.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperación de contraseña."
+          }
+        }
+      }
+    },
+    "forgot.email.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CORREO"
+          }
+        }
+      }
+    },
+    "forgot.submitbutton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperar contraseña"
+          }
+        }
+      }
+    },
+    "forgot.submitbutton.loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperando contraseña..."
+          }
+        }
+      }
+    },
+    "forgot.success.ctabutton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "forgot.success.message %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha enviado un correo a tu cuenta %@ con instrucciones para recuperar tu contraseña."
+          }
+        }
+      }
+    },
+    "invitations.abandoning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abandonando tu plan actual..."
+          }
+        }
+      }
+    },
+    "invitations.confirmleavealert.linked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres abandonar la planificación? El resto de tus compañeros seguirán planificando sin ti."
+          }
+        }
+      }
+    },
+    "invitations.confirmleavealert.owner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres abandonar la planificación? Si abandonas, el primero de tus compañeros pasará a ser el propietario del plan que compartís."
+          }
+        }
+      }
+    },
+    "invitations.createInvite.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido crear tu invitación, prueba por favor más tarde."
+          }
+        }
+      }
+    },
+    "invitations.creatinginvite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creando invitación..."
+          }
+        }
+      }
+    },
+    "invitations.empty.share.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona \"Enviar invitación\""
+          }
+        }
+      }
+    },
+    "invitations.empty.share.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavía no has compartido tú planning con ningún usuario"
+          }
+        }
+      }
+    },
+    "invitations.header.owner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CREADOR DE LA PLANIFICACIÓN"
+          }
+        }
+      }
+    },
+    "invitations.header.sharedwith" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planning compartido con"
+          }
+        }
+      }
+    },
+    "invitations.leavelinked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abandonar planificación"
+          }
+        }
+      }
+    },
+    "invitations.removinguser" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualzando los invitados de tu plan."
+          }
+        }
+      }
+    },
+    "invitations.send" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar invitación"
+          }
+        }
+      }
+    },
+    "invitations.shared" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planificación compartida"
+          }
+        }
+      }
+    },
+    "invitations.sharemyplan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartir mi planificación"
+          }
+        }
+      }
+    },
+    "invitations.stopsharing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dejar de compartir mi planning"
+          }
+        }
+      }
+    },
+    "Local notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local notifications"
+          }
+        }
+      }
+    },
+    "myaccount.account.closesession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar sesión"
+          }
+        }
+      }
+    },
+    "myaccount.account.deletaaccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar cuenta"
+          }
+        }
+      }
+    },
+    "myaccount.account.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CUENTA"
+          }
+        }
+      }
+    },
+    "myaccount.account.invalidusername" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El nombre de usuario no es válido"
+          }
+        }
+      }
+    },
+    "myaccount.alert.cantdeleteaccount.button.seeshares" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver \"compartir mi plan\""
+          }
+        }
+      }
+    },
+    "myaccount.alert.cantdeleteaccount.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eres el propietario del plan que estás compartiendo, así que no puedes borrar tu cuenta, primero abandona el plan for favor."
+          }
+        }
+      }
+    },
+    "myaccount.alert.closesession.button.close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        }
+      }
+    },
+    "myaccount.alert.closesession.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres cerrar sesión? Perderás acceso a tu planificación actual y verás una nueva planificación en blanco."
+          }
+        }
+      }
+    },
+    "myaccount.alert.deleteaccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para eliminar la cuenta de usuario debes introducir la contraseña"
+          }
+        }
+      }
+    },
+    "myaccount.alert.deleteaccount.button.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar cuenta"
+          }
+        }
+      }
+    },
+    "myaccount.alert.deleteaccount.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar cuenta de usuario"
+          }
+        }
+      }
+    },
+    "myaccount.notification.daily.explained" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda cada día tu menú, que no te pille con la nevera vacía."
+          }
+        }
+      }
+    },
+    "myaccount.notification.enableonsettings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No podremos recordarte tu plan. Habilita las notificaciones en ajustes del dispositivo para no olvidar nada."
+          }
+        }
+      }
+    },
+    "myaccount.notification.enableonsettings.cta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la configuración"
+          }
+        }
+      }
+    },
+    "myaccount.notification.enableonsettings.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las notificaciones no están activadas"
+          }
+        }
+      }
+    },
+    "myaccount.notification.weekly.explained" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda programar semanalmente tus recetas"
+          }
+        }
+      }
+    },
+    "myaccount.notifications.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOTIFICACIONES"
+          }
+        }
+      }
+    },
+    "myaccount.notifications.row.daily" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diarias"
+          }
+        }
+      }
+    },
+    "myaccount.notifications.row.weekly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semanales"
+          }
+        }
+      }
+    },
+    "myaccount.register.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regístrate"
+          }
+        }
+      }
+    },
+    "myaccount.register.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para tener más funcionalidades en la app te aconsejamos que te registres."
+          }
+        }
+      }
+    },
+    "myaccount.share.header.share" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COMPARTIR"
+          }
+        }
+      }
+    },
+    "myaccount.share.header.shared" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "COMPARTIDO"
+          }
+        }
+      }
+    },
+    "myaccount.share.row" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartir mi planificación"
+          }
+        }
+      }
+    },
+    "myaccount.share.row.planownedby %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan de %@"
+          }
+        }
+      }
+    },
+    "myaccount.share.row.subtitle.sharedwithmany %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Plan compartido con %lld usuario"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Plan compartido con %lld usuarios"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "myaccount.share.row.subtitle.sharedwithuser %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan compartido con %@"
+          }
+        }
+      }
+    },
+    "myaccount.share.row.subtitle.sharedwithyou" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan compartido contigo"
+          }
+        }
+      }
+    },
+    "myaccount.share.row.subtitle.unshared" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No has compartido tu planificación"
+          }
+        }
+      }
+    },
+    "notifications.daily.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda tu plan"
+          }
+        }
+      }
+    },
+    "notifications.weekly.done.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡¡Bien hecho!! Parece que tienes planificada la siguiente semana."
+          }
+        }
+      }
+    },
+    "notifications.weekly.missing.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Prueba hoy a planificar la siguiente semana entera!"
+          }
+        }
+      }
+    },
+    "notifications.weekly.partial.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu planificación termina pronto: %@. ¡Completa hoy tu planificación semanal!"
+          }
+        }
+      }
+    },
+    "notifications.weekly.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es hora de planificar."
+          }
+        }
+      }
+    },
+    "or.continue.with" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O"
+          }
+        }
+      }
+    },
+    "plan.snackbar.synching" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sincronizando tu plan..."
+          }
+        }
+      }
+    },
+    "push.permissions_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Queremos mandarte notificaciones cuando tus planificaciones compartidas cambian."
+          }
+        }
+      }
+    },
+    "push.planmodified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ha modificado la planificación que compartís."
+          }
+        }
+      }
+    },
+    "register.gotosignin.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Ya tienes una cuenta en Family Meal Planner?"
+          }
+        }
+      }
+    },
+    "shared.afternoonsnack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merienda"
+          }
+        }
+      }
+    },
+    "shared.alert.accept" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        }
+      }
+    },
+    "shared.alert.button.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "shared.alert.gotit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entendido"
+          }
+        }
+      }
+    },
+    "shared.appname" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Family Meal Planner"
+          }
+        }
+      }
+    },
+    "shared.breakfast" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desayuno"
+          }
+        }
+      }
+    },
+    "shared.button.retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reintentar"
+          }
+        }
+      }
+    },
+    "shared.cancelled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La operación ha sido cancelada."
+          }
+        }
+      }
+    },
+    "shared.dinner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cena"
+          }
+        }
+      }
+    },
+    "shared.emmrestricted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La operación está restringida en este dispositivo debido a las políticas de la empresa."
+          }
+        }
+      }
+    },
+    "shared.loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando..."
+          }
+        }
+      }
+    },
+    "shared.lunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comida"
+          }
+        }
+      }
+    },
+    "shared.noconnection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay conexión"
+          }
+        }
+      }
+    },
+    "shared.notfounderror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo sentimos, no hemos encontrado lo que estás buscando."
+          }
+        }
+      }
+    },
+    "shared.offlineerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ups, parece que estás sin conexión al servicio."
+          }
+        }
+      }
+    },
+    "shared.unknownerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ups... ha ocurrido un error \"desconocido\"."
+          }
+        }
+      }
+    },
+    "signin.email.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CORREO"
+          }
+        }
+      }
+    },
+    "signin.email.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu correo electrónico"
+          }
+        }
+      }
+    },
+    "signin.email.validationerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato de correo inválido"
+          }
+        }
+      }
+    },
+    "signin.forgotpassword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Has olvidado tu contraseña?"
+          }
+        }
+      }
+    },
+    "signin.gotoregister" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regístrate con tu correo"
+          }
+        }
+      }
+    },
+    "signin.password.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CONTRASEÑA"
+          }
+        }
+      }
+    },
+    "signin.password.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "********"
+          }
+        }
+      }
+    },
+    "signin.password.validationerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La contraseña no tiene la longitud mínima"
+          }
+        }
+      }
+    },
+    "signin.signinbutton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar sesión"
+          }
+        }
+      }
+    },
+    "signin.signinheader" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar sesión"
+          }
+        }
+      }
+    },
+    "signup.button.register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regístrame"
+          }
+        }
+      }
+    },
+    "signup.email.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CORREO"
+          }
+        }
+      }
+    },
+    "signup.email.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu correo electrónico"
+          }
+        }
+      }
+    },
+    "signup.email.validationerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato de correo inválido"
+          }
+        }
+      }
+    },
+    "signup.gotosignin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión"
+          }
+        }
+      }
+    },
+    "signup.nickname.validationerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utiliza 5 caracteres mínimo y sin signos especiales"
+          }
+        }
+      }
+    },
+    "signup.password.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CONTRASEÑA"
+          }
+        }
+      }
+    },
+    "signup.password.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce tu contraseña"
+          }
+        }
+      }
+    },
+    "signup.password.validationerror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraseña inválida: debe contener al menos 6 caracteres, una mayúscula y un carácter especial, y que el último carácter se escriba en un minuto impar ;)"
+          }
+        }
+      }
+    },
+    "signup.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro"
+          }
+        }
+      }
+    },
+    "signup.user.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOMBRE DE USUARIO"
+          }
+        }
+      }
+    },
+    "signup.user.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El nombre que otros usuarios verán"
+          }
+        }
+      }
+    },
+    "Social Login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social Login"
+          }
+        }
+      }
+    },
+    "Under Maintenance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Under Maintenance"
+          }
+        }
+      }
+    },
+    "Use remote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use remote"
+          }
+        }
+      }
+    },
+    "Use remote config" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use remote config"
+          }
+        }
+      }
+    },
+    "welcome.button.signup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrate con tu correo"
+          }
+        }
+      }
+    },
+    "welcome.forceUpdate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualízate a la última versión para seguir disfrutando de Family Meal Planner!"
+          }
+        }
+      }
+    },
+    "welcome.forceUpdate.cta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargar la última versión"
+          }
+        }
+      }
+    },
+    "welcome.forceUpdate.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo sentimos, pero la versión que usas es demasiado vieja."
+          }
+        }
+      }
+    },
+    "welcome.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenido a Family Meal Planner!"
+          }
+        }
+      }
+    },
+    "welcome.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea y sincroniza tu planificación con los miembros de tu familia."
+          }
+        }
+      }
+    },
+    "welcome.undermaintenance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servicio no está disponible en este momento, intente más tarde por favor."
+          }
+        }
+      }
+    },
+    "welcome.underMaintenance.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En mantenimiento"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
