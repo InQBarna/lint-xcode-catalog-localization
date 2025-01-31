@@ -12,6 +12,7 @@ Lint Xcode localization content using string catalogs
 ## Usage (Version 0.1.0)
 
 ### Using mint
+
 ```
 xcodebuild -exportLocalizations \
     -workspace WORKSPACE.xcworkspace \
@@ -40,6 +41,4 @@ rm -Rf tmp_exported_folder
 
 ## Usage (TODO: Next versions)
 
-```
-mint run InQBarna/lint-xcode-catalog-localization WORKSPACE.xcworkspace
-```
+```mint run InQBarna/lint-xcode-catalog-localization WORKSPACE.xcworkspace```
