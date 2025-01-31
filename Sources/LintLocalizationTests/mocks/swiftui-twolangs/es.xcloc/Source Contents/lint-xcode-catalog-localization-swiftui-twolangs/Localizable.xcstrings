@@ -1,0 +1,15 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Empty translation" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Missing translation" : {
+
+    }
+  },
+  "version" : "1.0"
+}

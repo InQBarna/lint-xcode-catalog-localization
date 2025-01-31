@@ -11,7 +11,22 @@ import Foundation
 struct TranslationError: Equatable {
     let language: String
     let key: String
-    let description: String
+    enum ErrorType: Equatable {
+        case equalToKey
+        case empty
+        case newMeansNoLocalized
+    }
+    let type: ErrorType
+    var description: String {
+        switch type {
+        case .equalToKey:
+            return "content equal to key"
+        case .empty:
+            return "empty tranlation"
+        case .newMeansNoLocalized:
+            return "no localized"
+        }
+    }
 }
 
 class XliffValidator {
@@ -48,14 +63,7 @@ class XliffValidator {
         let delegate = XliffParserDelegate(language: language)
         parser.delegate = delegate
         parser.parse()
-        
-        return delegate.errors.map { error in
-            TranslationError(
-                language: language,
-                key: error.key,
-                description: error.description
-            )
-        }
+        return delegate.errors
     }
     
     private func printErrorsForLanguage(_ language: String, errors: [TranslationError]) {
@@ -92,6 +100,7 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
     var errors: [TranslationError] = []
     private var currentKey: String?
     private var currentTarget = ""
+    private var currentTargetState: String?
     private var currentElementName: String?
     private let language: String
     
@@ -105,6 +114,10 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
         if elementName == "trans-unit" {
             currentKey = attributeDict["id"]
             currentTarget = ""
+            currentTargetState = nil
+        }
+        if elementName == "target" {
+            currentTargetState = attributeDict["state"]
         }
     }
     
@@ -116,15 +129,19 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "trans-unit", let key = currentKey {
             let trimmedTarget = currentTarget.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            let trimmedTargetState = currentTargetState?.trimmingCharacters(in: .whitespacesAndNewlines)
+
             if trimmedTarget.isEmpty {
-                errors.append(TranslationError(language: language, key: key, description: "Empty translation"))
+                errors.append(TranslationError(language: language, key: key, type: .empty))
             } else if trimmedTarget == key {
-                errors.append(TranslationError(language: language, key: key, description: "Translation equal to key"))
+                errors.append(TranslationError(language: language, key: key, type: .equalToKey))
+            } else if trimmedTargetState == "new" {
+                errors.append(TranslationError(language: language, key: key, type: .newMeansNoLocalized))
             }
             
             currentKey = nil
             currentTarget = ""
+            currentTargetState = ""
             currentElementName = nil
         }
     }

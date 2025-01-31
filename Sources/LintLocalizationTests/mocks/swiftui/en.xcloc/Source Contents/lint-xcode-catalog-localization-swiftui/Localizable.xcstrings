@@ -1,0 +1,22 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Empty translation" : {
+      "extractionState" : "manual"
+    },
+    "Hello, world!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello world!"
+          }
+        }
+      }
+    },
+    "Missing translation" : {
+
+    }
+  },
+  "version" : "1.0"
+}
