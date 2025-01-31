@@ -7,21 +7,22 @@ Lint Xcode localization content using string catalogs
 ```mint install InQBarna/lint-xcode-catalog-localization```
 
 ### Cloning
-```git clone https://github.com/InQBarna/lint-xcode-catalog-localization.git```
-```cd lint-xcode-catalog-localization```
+```git clone https://github.com/InQBarna/lint-xcode-catalog-localization.git
 
 ## Usage (Version 0.1.0)
 
 ### Using mint
-```mint run InQBarna/lint-xcode-catalog-localization xcloc_exported_folder```
+```
+xcodebuild -exportLocalizations \
+    -workspace WORKSPACE.xcworkspace \
+    -localizationPath xcloc_exported_folder \
+    -exportLanguage es \
+    -exportLanguage en
+mint run InQBarna/lint-xcode-catalog-localization xcloc_exported_folder
+rm -Rf tmp_exported_folder
+```
 
 ### Cloning
-```
-cd lint-xcode-catalog-localization
-swift run LintLocalization xcloc_exported_folder
-```
-
-## Integrate with xcode workflows
 
 ```
 xcodebuild -exportLocalizations \
@@ -29,7 +30,16 @@ xcodebuild -exportLocalizations \
     -localizationPath xcloc_exported_folder \
     -exportLanguage es \
     -exportLanguage en
-# Mint usage
-mint run InQBarna/lint-xcode-catalog-localization xcloc_exported_folder
+    
+cd lint-xcode-catalog-localization
+swift run LintLocalization ../xcloc_exported_folder
+cd ..
+
 rm -Rf tmp_exported_folder
+```
+
+## Usage (TODO: Next versions)
+
+```
+mint run InQBarna/lint-xcode-catalog-localization WORKSPACE.xcworkspace
 ```
