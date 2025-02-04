@@ -168,30 +168,83 @@ func getXliffFileNames(from folderPath: String) throws -> [String] {
 
 
 struct LintLocalization: ParsableCommand {
-    @Argument(help: "The path to the folder containing .xcloc directories")
-    var folderPath: String
+    @Argument(help: "The path to the .xcworkspace")
+    var workspacePath: String
     
     func run() throws {
-        let validator = XliffValidator()
+        let tempFolder = "tmp_xcloc_export"
+        
+        defer { cleanupTempFolder(tempFolder) }
         
         do {
-            let xliffPaths = try getXliffFileNames(from: folderPath)
+            try exportLocalizations(to: tempFolder)
+            
+            let validator = XliffValidator()
+            let xliffPaths = try getXliffFileNames(from: tempFolder)
             
             let errors = validator.validateXliffFiles(at: xliffPaths)
             validator.generateFinalReport(from: errors)
             
-            if errors.count > 0 {
+            if !errors.isEmpty {
                 throw ExitCode.failure
             }
         } catch {
-            if let exitByCode = error as? ExitCode,
-               exitByCode == .failure {
-                throw ExitCode.failure
-            } else {
-                print("Error linting: \(error.localizedDescription)")
-                throw ExitCode.failure
-            }
+            print("❌ Error: \(error.localizedDescription)")
+            throw ExitCode.failure
         }
+    }
+    
+    private func exportLocalizations(to folder: String) throws {
+        print("📦 Exporting localizations...")
+        
+        guard FileManager.default.fileExists(atPath: workspacePath) else {
+            throw NSError(domain: "ExportError", code: 1, userInfo: [NSLocalizedDescriptionKey: "The workspace path does not exist: \(workspacePath)"])
+        }
+        
+        let process = Process()
+        process.launchPath = "/usr/bin/xcodebuild"
+        process.arguments = [
+            "-exportLocalizations",
+            "-workspace", workspacePath,
+            "-localizationPath", folder,
+            "-exportLanguage", "es",
+            "-exportLanguage", "ca",
+            "-exportLanguage", "en",
+        ]
+        
+        try runProcess(process)
+        print("✅ Localizations exported successfully.")
+    }
+    
+    private func runProcess(_ process: Process) throws {
+        let errorPipe = Pipe()
+        process.standardError = errorPipe
+        
+        let errorHandle = errorPipe.fileHandleForReading
+        var errorData = Data()
+        
+        let errorQueue = DispatchQueue(label: "process-error", qos: .userInitiated)
+        errorQueue.async {
+            errorData.append(errorHandle.readDataToEndOfFile())
+        }
+        
+        try process.run()
+        process.waitUntilExit()
+        
+        if process.terminationStatus != 0 {
+            let errorMessage = String(data: errorData, encoding: .utf8) ?? "Unknown error"
+            throw NSError(
+                domain: "XcodeBuildError",
+                code: Int(process.terminationStatus),
+                userInfo: [NSLocalizedDescriptionKey: errorMessage]
+            )
+        }
+    }
+    
+    private func cleanupTempFolder(_ folder: String) {
+        print("🗑 Cleaning up temporary files...")
+        try? FileManager.default.removeItem(atPath: folder)
+        print("✅ Cleanup complete.")
     }
 }
 
