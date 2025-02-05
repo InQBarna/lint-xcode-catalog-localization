@@ -9,6 +9,12 @@
     },
     "Missing translation" : {
 
+    },
+    "Not compiled translation" : {
+
+    },
+    "nsloc1" : {
+      "comment" : "Sample nslocalizedString 1\nSample nslocalizedString 1 another comment"
     }
   },
   "version" : "1.0"

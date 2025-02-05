@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+final class ViewModel {
+    var sampleNSLocString: String {
+        NSLocalizedString("nsloc1", comment: "Sample nslocalizedString 1")
+    }
+    var sampleNSLocStringAltComment: String {
+        NSLocalizedString("nsloc1", comment: "Sample nslocalizedString 1 another comment")
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -16,6 +25,10 @@ struct ContentView: View {
             Text("Hello, world!")
             Text("Missing translation")
             Text("Empty translation")
+            // Text("commented translation")
+            #if true
+            Text("Not compiled translation")
+            #endif
         }
         .padding()
     }
@@ -23,4 +36,13 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+extension LocalizedStringKey.StringInterpolation {
+    mutating func appendInterpolation(useKeys: String) {
+        self.appendLiteral("ll")
+    }
+    mutating func appendInterpolation(useInt: Int) {
+        self.appendLiteral("ll")
+    }
 }

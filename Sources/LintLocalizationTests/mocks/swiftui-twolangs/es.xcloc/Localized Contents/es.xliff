@@ -32,6 +32,15 @@
         <source>Missing translation</source>
         <note/>
       </trans-unit>
+      <trans-unit id="Not compiled translation" xml:space="preserve">
+        <source>Not compiled translation</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="nsloc1" xml:space="preserve">
+        <source>nsloc1</source>
+        <note>Sample nslocalizedString 1
+Sample nslocalizedString 1 another comment</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>
