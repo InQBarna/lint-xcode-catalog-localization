@@ -233,13 +233,16 @@ struct LintLocalization: ParsableCommand {
     private func runProcess(_ process: Process) throws {
         
         let errorPipe = Pipe()
+        process.standardError = errorPipe
         let stdOutPipe = Pipe()
         process.standardOutput = stdOutPipe
-        process.standardError = errorPipe
-        
+
         var errorData = Data()
         DispatchQueue(label: "process-error", qos: .userInitiated).async {
             errorData.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
+        }
+        DispatchQueue(label: "process-stdout", qos: .userInitiated).async {
+            stdOutPipe.fileHandleForReading.readDataToEndOfFile()
         }
         
         try process.run()
