@@ -93,6 +93,7 @@ class XliffValidator {
             print("  - Empty translations: \(emptyTranslations.count)")
             print("  - Translations equal to key: \(equalToKeyTranslations.count)")
         }
+        print("")
     }
 }
 
@@ -169,12 +170,14 @@ func getXliffFileNames(from folderPath: String) throws -> [String] {
 
 struct LintLocalization: ParsableCommand {
     @Argument(help: "The path to the .xcworkspace")
-    var workspacePath: String
+    var workspaceOrProjectPath: String
     
     func run() throws {
         let tempFolder = "tmp_xcloc_export"
         
-        defer { cleanupTempFolder(tempFolder) }
+        defer {
+            cleanupTempFolder(tempFolder)
+        }
         
         do {
             try exportLocalizations(to: tempFolder)
@@ -189,7 +192,11 @@ struct LintLocalization: ParsableCommand {
                 throw ExitCode.failure
             }
         } catch {
-            print("❌ Error: \(error.localizedDescription)")
+            if (error as? ExitCode) == .failure {
+                print("❌ Validation errors found")
+            } else {
+                print("❌ Unexpected error: \(error.localizedDescription)")
+            }
             throw ExitCode.failure
         }
     }
@@ -197,15 +204,22 @@ struct LintLocalization: ParsableCommand {
     private func exportLocalizations(to folder: String) throws {
         print("📦 Exporting localizations...")
         
-        guard FileManager.default.fileExists(atPath: workspacePath) else {
-            throw NSError(domain: "ExportError", code: 1, userInfo: [NSLocalizedDescriptionKey: "The workspace path does not exist: \(workspacePath)"])
+        guard FileManager.default.fileExists(atPath: workspaceOrProjectPath) else {
+            throw NSError(
+                domain: "ExportError",
+                code: 1,
+                userInfo: [
+                    NSLocalizedDescriptionKey: "The workspace path does not exist: \(workspaceOrProjectPath)"
+                ]
+            )
         }
         
         let process = Process()
         process.launchPath = "/usr/bin/xcodebuild"
+        let workspaceParam = workspaceOrProjectPath.contains("xcworkspace") ? "-workspace" : "-project"
         process.arguments = [
             "-exportLocalizations",
-            "-workspace", workspacePath,
+            workspaceParam, workspaceOrProjectPath,
             "-localizationPath", folder,
             "-exportLanguage", "es",
             "-exportLanguage", "ca",
@@ -217,15 +231,15 @@ struct LintLocalization: ParsableCommand {
     }
     
     private func runProcess(_ process: Process) throws {
+        
         let errorPipe = Pipe()
+        let stdOutPipe = Pipe()
+        process.standardOutput = stdOutPipe
         process.standardError = errorPipe
         
-        let errorHandle = errorPipe.fileHandleForReading
         var errorData = Data()
-        
-        let errorQueue = DispatchQueue(label: "process-error", qos: .userInitiated)
-        errorQueue.async {
-            errorData.append(errorHandle.readDataToEndOfFile())
+        DispatchQueue(label: "process-error", qos: .userInitiated).async {
+            errorData.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
         }
         
         try process.run()

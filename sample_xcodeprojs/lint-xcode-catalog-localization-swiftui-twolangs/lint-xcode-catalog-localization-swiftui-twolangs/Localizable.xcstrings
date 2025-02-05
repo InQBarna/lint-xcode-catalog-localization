@@ -5,7 +5,14 @@
 
     },
     "Hello, world!" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola, Mundo!"
+          }
+        }
+      }
     },
     "Missing translation" : {
 
