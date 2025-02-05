@@ -22,7 +22,7 @@ struct TranslationError: Equatable {
         case .equalToKey:
             return "content equal to key"
         case .empty:
-            return "empty tranlation"
+            return "empty translation"
         case .newMeansNoLocalized:
             return "no localized"
         }
@@ -128,27 +128,27 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == "trans-unit", let key = currentKey {
-            let trimmedTarget = currentTarget.trimmingCharacters(in: .whitespacesAndNewlines)
-            let trimmedTargetState = currentTargetState?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard elementName == "trans-unit", let key = currentKey else { return }
+        
+        let trimmedTarget = currentTarget.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTargetState = currentTargetState?.trimmingCharacters(in: .whitespacesAndNewlines)
 
-            if trimmedTarget.isEmpty {
-                errors.append(TranslationError(language: language, key: key, type: .empty))
-            } else if trimmedTarget == key {
-                errors.append(TranslationError(language: language, key: key, type: .equalToKey))
-            } else if trimmedTargetState == "new" {
-                errors.append(TranslationError(language: language, key: key, type: .newMeansNoLocalized))
-            }
-            
-            currentKey = nil
-            currentTarget = ""
-            currentTargetState = ""
-            currentElementName = nil
+        if trimmedTarget.isEmpty {
+            errors.append(TranslationError(language: language, key: key, type: .empty))
+        } else if trimmedTarget == key {
+            errors.append(TranslationError(language: language, key: key, type: .equalToKey))
+        } else if trimmedTargetState == "new" {
+            errors.append(TranslationError(language: language, key: key, type: .newMeansNoLocalized))
         }
+        
+        currentKey = nil
+        currentTarget = ""
+        currentTargetState = ""
+        currentElementName = nil
     }
 }
 
-func getXliffFileNames(from folderPath: String) throws -> [String] {
+func getXliffFilesPaths(from folderPath: String) throws -> [String] {
     let folderURL = URL(fileURLWithPath: folderPath)
     let contents = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil)
     let xclocDirectories = contents.filter { $0.pathExtension == "xcloc" }
@@ -183,7 +183,7 @@ struct LintLocalization: ParsableCommand {
             try exportLocalizations(to: tempFolder)
             
             let validator = XliffValidator()
-            let xliffPaths = try getXliffFileNames(from: tempFolder)
+            let xliffPaths = try getXliffFilesPaths(from: tempFolder)
             
             let errors = validator.validateXliffFiles(at: xliffPaths)
             validator.generateFinalReport(from: errors)
@@ -201,6 +201,41 @@ struct LintLocalization: ParsableCommand {
         }
     }
     
+    func getLocalizationLanguages(from projectPath: String) throws -> [String] {
+        let projectURL = URL(fileURLWithPath: projectPath)
+        let projectFolder = projectURL.deletingLastPathComponent()
+        
+        let fileManager = FileManager.default
+        let enumerator = fileManager.enumerator(at: projectFolder, includingPropertiesForKeys: nil)
+        
+        var languages: Set<String> = []
+        
+        while let fileURL = enumerator?.nextObject() as? URL {
+            if fileURL.pathExtension == "xcstrings" {
+                do {
+                    let data = try Data(contentsOf: fileURL)
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let strings = json["strings"] as? [String: Any] {
+                            for (_, value) in strings {
+                                if let localizedStrings = value as? [String: Any],
+                                   let localizations = localizedStrings["localizations"] as? [String: Any] {
+                                    languages.formUnion(localizations.keys)
+                                }
+                            }
+                        }
+                        if let sourceLanguage = json["sourceLanguage"] as? String {
+                            languages.insert(sourceLanguage)
+                        }
+                    }
+                } catch {
+                    print("Error parsing \(fileURL.lastPathComponent): \(error.localizedDescription)")
+                }
+            }
+        }
+        
+        return Array(languages).sorted()
+    }
+    
     private func exportLocalizations(to folder: String) throws {
         print("📦 Exporting localizations...")
         
@@ -214,20 +249,31 @@ struct LintLocalization: ParsableCommand {
             )
         }
         
-        let process = Process()
-        process.launchPath = "/usr/bin/xcodebuild"
-        let workspaceParam = workspaceOrProjectPath.contains("xcworkspace") ? "-workspace" : "-project"
-        process.arguments = [
-            "-exportLocalizations",
-            workspaceParam, workspaceOrProjectPath,
-            "-localizationPath", folder,
-            "-exportLanguage", "es",
-            "-exportLanguage", "ca",
-            "-exportLanguage", "en",
-        ]
-        
-        try runProcess(process)
-        print("✅ Localizations exported successfully.")
+        do {
+            let detectedLanguages = try getLocalizationLanguages(from: workspaceOrProjectPath)
+            print("🌎 Detected languages: \(detectedLanguages)")
+            
+            let workspaceParam = workspaceOrProjectPath.contains("xcworkspace") ? "-workspace" : "-project"
+            
+            var arguments: [String] = [
+                "-exportLocalizations",
+                workspaceParam, workspaceOrProjectPath,
+                "-localizationPath", folder
+            ]
+            
+            for language in detectedLanguages {
+                arguments.append(contentsOf: ["-exportLanguage", language])
+            }
+            
+            let process = Process()
+            process.launchPath = "/usr/bin/xcodebuild"
+            process.arguments = arguments
+            
+            try runProcess(process)
+            print("✅ All localizations exported successfully.")
+        } catch {
+            print("❌ Error retrieving languages: \(error.localizedDescription)")
+        }
     }
     
     private func runProcess(_ process: Process) throws {
