@@ -173,7 +173,8 @@ struct LintLocalization: ParsableCommand {
     var workspaceOrProjectPath: String
     
     func run() throws {
-        let tempFolder = "tmp_xcloc_export"
+        let uuid = UUID().uuidString
+        let tempFolder = "/tmp/lint-xcode-catalog-localization-\(uuid)"
         
         defer {
             cleanupTempFolder(tempFolder)
@@ -208,32 +209,49 @@ struct LintLocalization: ParsableCommand {
         let fileManager = FileManager.default
         let enumerator = fileManager.enumerator(at: projectFolder, includingPropertiesForKeys: nil)
         
-        var languages: Set<String> = []
+        var xcstringFiles: [URL] = []
         
         while let fileURL = enumerator?.nextObject() as? URL {
             if fileURL.pathExtension == "xcstrings" {
-                do {
-                    let data = try Data(contentsOf: fileURL)
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let strings = json["strings"] as? [String: Any] {
-                            for (_, value) in strings {
-                                if let localizedStrings = value as? [String: Any],
-                                   let localizations = localizedStrings["localizations"] as? [String: Any] {
-                                    languages.formUnion(localizations.keys)
-                                }
-                            }
-                        }
-                        if let sourceLanguage = json["sourceLanguage"] as? String {
-                            languages.insert(sourceLanguage)
-                        }
-                    }
-                } catch {
-                    print("Error parsing \(fileURL.lastPathComponent): \(error.localizedDescription)")
-                }
+                xcstringFiles.append(fileURL)
             }
         }
         
-        return Array(languages).sorted()
+        guard let xcstringFileURL = xcstringFiles.first else {
+            throw NSError(domain: "XCStringError", code: 1, userInfo: [
+                NSLocalizedDescriptionKey: "No .xcstrings file found"
+            ])
+        }
+        
+        if xcstringFiles.count > 1 {
+            throw NSError(domain: "XCStringError", code: 2, userInfo: [
+                NSLocalizedDescriptionKey: "More than one .xcstrings file found"
+            ])
+        }
+        
+        let data = try Data(contentsOf: xcstringFileURL)
+        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            var languages: Set<String> = []
+            
+            if let strings = json["strings"] as? [String: Any] {
+                for (_, value) in strings {
+                    if let localizedStrings = value as? [String: Any],
+                       let localizations = localizedStrings["localizations"] as? [String: Any] {
+                        languages.formUnion(localizations.keys)
+                    }
+                }
+            }
+            
+            if let sourceLanguage = json["sourceLanguage"] as? String {
+                languages.insert(sourceLanguage)
+            }
+            
+            return Array(languages).sorted()
+        }
+        
+        throw NSError(domain: "XCStringError", code: 3, userInfo: [
+            NSLocalizedDescriptionKey: "Error parsing .xcstrings file"
+        ])
     }
     
     private func exportLocalizations(to folder: String) throws {
