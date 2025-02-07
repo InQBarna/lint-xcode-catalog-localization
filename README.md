@@ -4,6 +4,17 @@ Lint Xcode localization content using string catalogs
 
 Run against your xcodeproj/xcworkspace to detect missing localizations
 
+*Features*
+
+- Failure if any key has a missing translation (empty).
+- Failure if any translation is equal to key (for key-based localization).
+- List all missing translations (including translation equal to key).
+
+*TODO*
+
+- Warning-style output format so script can be used as build script step.
+
+
 *Please note it only works for projects using string catalogs*
 
 ## Installation (mint)
