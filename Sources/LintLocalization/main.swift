@@ -64,39 +64,6 @@ class XliffValidator {
         parser.parse()
         return delegate.errors
     }
-    
-    struct ErrorReportByType {
-        let type: TranslationError.ErrorType
-        let languages: [String]
-        let key: String
-    }
-    func generateErrorsReportByType(from errors: [TranslationError]) -> [ErrorReportByType] {
-        Dictionary(grouping: errors, by: { $0.key })
-            .flatMap { key, errorsGroupedByKey in
-                Dictionary(grouping: errorsGroupedByKey, by: { $0.type })
-                    .compactMap { (errorType, errorsGroupedByErrorType) -> ErrorReportByType? in
-                        ErrorReportByType(
-                            type: errorType,
-                            languages: errorsGroupedByErrorType.map { $0.language },
-                            key: key
-                        )
-                    }
-            }
-    }
-    
-    func generateHumanErrorReport(from errors: [TranslationError]) -> [String] {
-        generateErrorsReportByType(from: errors)
-            .map { error in
-                "❌ Error: key \"\(error.key)\" has \(error.type.description) for languages (\(error.languages.joined(separator: ","))) "
-            }
-    }
-    
-    func generateCompilerErrorReport(from errors: [TranslationError]) -> [String] {
-        generateErrorsReportByType(from: errors)
-            .map { error in
-                "warning:\(error.type.warn_description):\(error.languages.joined(separator: ",")):\"\(error.key)\""
-            }
-    }
 }
 
 class XliffParserDelegate: NSObject, XMLParserDelegate {
@@ -165,6 +132,9 @@ struct LintLocalization: ParsableCommand {
     @Argument(help: "The path to the .xcworkspace")
     var workspaceOrProjectPath: String
     
+    // @Option(help: "Indicates wether string keys are added instead of base localization")
+    // var keys: Bool
+    
     func run() throws {
         let uuid = UUID().uuidString
         let tempFolder = "/tmp/lint-xcode-catalog-localization-\(uuid)"
@@ -175,44 +145,51 @@ struct LintLocalization: ParsableCommand {
             print("✅ Cleanup complete.")
         }
         
+        let detectedWithinXcodeBuildEnvironment = false
+        let errors: [TranslationError]
         do {
             
-            let detectedLanguages = try getLocalizationLanguages(from: workspaceOrProjectPath)
+            print("🌎 Checking project for languages")
+            let xcstringFiles = try getXCStringFiles(from: workspaceOrProjectPath)
+            let detectedLanguages = try getLocalizationLanguages(xcstringFiles: xcstringFiles)
             print("🌎 Detected languages: \(detectedLanguages)")
-            print("📦 Exporting localizations...")
-            try exportLocalizations(to: tempFolder, languages: detectedLanguages)
-            print("✅ All localizations exported successfully.")
             
-            let validator = XliffValidator()
-            let xliffPaths = try getXliffFilesPaths(from: tempFolder)
-            let errors = try validator.validateXliffFiles(at: xliffPaths)
-            
-            if !errors.isEmpty {
-                let errorsReport: [String]
-                let detectedWithinXcodeBuildEnvironment = true
-                if detectedWithinXcodeBuildEnvironment {
-                    errorsReport = validator.generateCompilerErrorReport(from: errors)
-                } else {
-                    errorsReport = validator.generateHumanErrorReport(from: errors)
-                }
-                errorsReport.forEach { reportLine in
-                    print("\(reportLine)")
-                }
-                throw ExitCode.failure
-            }
-            print("✅ All translations are correct.")
-            
-        } catch {
-            if (error as? ExitCode) == .failure {
-                print("❌ Validation errors found")
+            if detectedWithinXcodeBuildEnvironment {
+                print("🗓️ Validating localizations")
+                errors = try validate(
+                    languages: detectedLanguages,
+                    xcstringFiles: xcstringFiles
+                )
             } else {
-                print("❌ Unexpected error: \(error.localizedDescription)")
+                print("📦 Exporting localizations...")
+                try exportLocalizations(to: tempFolder, languages: detectedLanguages)
+                print("✅ All localizations exported successfully.")
+                print("🗓️ Validating localizations")
+                let validator = XliffValidator()
+                let xliffPaths = try getXliffFilesPaths(from: tempFolder)
+                errors = try validator.validateXliffFiles(at: xliffPaths)
+            }
+        } catch {
+            print("❌ Unexpected error: \(error.localizedDescription)")
+            throw ExitCode.failure
+        }
+        guard errors.isEmpty else {
+            let errorsReport: [String]
+            if detectedWithinXcodeBuildEnvironment {
+                errorsReport = generateCompilerErrorReport(from: errors)
+            } else {
+                errorsReport = generateHumanErrorReport(from: errors)
+            }
+            errorsReport.forEach { reportLine in
+                print("\(reportLine)")
             }
             throw ExitCode.failure
         }
+        
+        print("✅ All translations are correct.")
     }
     
-    func getLocalizationLanguages(from projectPath: String) throws -> [String] {
+    func getXCStringFiles(from projectPath: String) throws -> [URL] {
         let projectURL = URL(fileURLWithPath: projectPath)
         let projectFolder = projectURL.deletingLastPathComponent()
         
@@ -232,7 +209,10 @@ struct LintLocalization: ParsableCommand {
                 NSLocalizedDescriptionKey: "No .xcstrings file found"
             ])
         }
+        return xcstringFiles
+    }
         
+    func getLocalizationLanguages(xcstringFiles: [URL]) throws -> [String] {
         var languages: Set<String> = []
         for xcstringFileURL in xcstringFiles {
             let data = try Data(contentsOf: xcstringFileURL)
@@ -261,6 +241,49 @@ struct LintLocalization: ParsableCommand {
         }
     
         return Array(languages).sorted()
+    }
+    
+    func validate(languages: [String], xcstringFiles: [URL]) throws -> [TranslationError] {
+        let jsons: [[String: Any]] = try xcstringFiles.map { xcstringFileURL in
+            let data = try Data(contentsOf: xcstringFileURL)
+            guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                throw NSError(domain: "XCStringError", code: 3, userInfo: [
+                    NSLocalizedDescriptionKey: "Error parsing .xcstrings file \(xcstringFileURL)"
+                ])
+            }
+            return json
+        }
+        return jsons.flatMap { (json) -> [TranslationError] in
+            (json["strings"] as? [String: Any] ?? [:]).flatMap { (key, value) -> [TranslationError] in
+                let localizations = (value as? [String: Any])?["localizations"] as? [String: Any] ?? [:]
+                return languages.compactMap { lang in
+                    guard let currentLangLoc = localizations[lang] as? [String: Any],
+                          let stringUnit = currentLangLoc["stringUnit"] as? [String: Any],
+                          let stringUnitValue = stringUnit["value"] as? String else {
+                        return TranslationError(
+                            language: lang,
+                            key: key,
+                            type: .empty
+                        )
+                    }
+                    if stringUnitValue.isEmpty {
+                        return TranslationError(
+                            language: lang,
+                            key: key,
+                            type: .empty
+                        )
+                    } else if stringUnitValue == key {
+                        return TranslationError(
+                            language: lang,
+                            key: key,
+                            type: .equalToKey
+                        )
+                    } else {
+                        return nil
+                    }
+                }
+            }
+        }
     }
     
     private func exportLocalizations(to folder: String, languages: [String]) throws {
@@ -325,6 +348,40 @@ struct LintLocalization: ParsableCommand {
     private func cleanupTempFolder(_ folder: String) {
         try? FileManager.default.removeItem(atPath: folder)
     }
+        
+    struct ErrorReportByType {
+        let type: TranslationError.ErrorType
+        let languages: [String]
+        let key: String
+    }
+    func generateErrorsReportByType(from errors: [TranslationError]) -> [ErrorReportByType] {
+        Dictionary(grouping: errors, by: { $0.key })
+            .flatMap { key, errorsGroupedByKey in
+                Dictionary(grouping: errorsGroupedByKey, by: { $0.type })
+                    .compactMap { (errorType, errorsGroupedByErrorType) -> ErrorReportByType? in
+                        ErrorReportByType(
+                            type: errorType,
+                            languages: errorsGroupedByErrorType.map { $0.language },
+                            key: key
+                        )
+                    }
+            }
+    }
+    
+    func generateHumanErrorReport(from errors: [TranslationError]) -> [String] {
+        generateErrorsReportByType(from: errors)
+            .map { error in
+                "❌ Error: key \"\(error.key)\" has \(error.type.description) for languages (\(error.languages.joined(separator: ","))) "
+            }
+    }
+    
+    func generateCompilerErrorReport(from errors: [TranslationError]) -> [String] {
+        generateErrorsReportByType(from: errors)
+            .map { error in
+                "warning:\(error.type.warn_description):\(error.languages.joined(separator: ",")):\"\(error.key)\""
+            }
+    }
+
 }
 
 LintLocalization.main()
