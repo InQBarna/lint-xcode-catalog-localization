@@ -43,7 +43,7 @@ final class LintLocalizationTests: XCTestCase {
     
     func testFindMockDirectory() throws {
         let folderPath = try getFolderPath(mockName: "fmp-full-export")
-        let xliffPaths = try getXliffFileNames(from: folderPath)
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
         let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors.first,
@@ -57,7 +57,7 @@ final class LintLocalizationTests: XCTestCase {
     
     func testUntranslated() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-untranslated")
-        let xliffPaths = try getXliffFileNames(from: folderPath)
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
         let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors,
@@ -79,6 +79,11 @@ final class LintLocalizationTests: XCTestCase {
                 ),
                 TranslationError(
                     language: "en",
+                    key: "Hello, world!",
+                    type: .equalToKey
+                ),
+                TranslationError(
+                    language: "en",
                     key: "Missing translation",
                     type: .equalToKey
                 )
@@ -88,7 +93,7 @@ final class LintLocalizationTests: XCTestCase {
     
     func testSwiftui() throws {
         let folderPath = try getFolderPath(mockName: "swiftui")
-        let xliffPaths = try getXliffFileNames(from: folderPath)
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
         let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors,
@@ -119,7 +124,7 @@ final class LintLocalizationTests: XCTestCase {
     
     func testSwiftuiTwoLangs() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-twolangs")
-        let xliffPaths = try getXliffFileNames(from: folderPath)
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
         let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors.sortedByLangKey,
@@ -136,6 +141,11 @@ final class LintLocalizationTests: XCTestCase {
                 ),
                 TranslationError(
                     language: "en",
+                    key: "Hello, world!",
+                    type: .equalToKey
+                ),
+                TranslationError(
+                    language: "en",
                     key: "Missing translation",
                     type: .equalToKey
                 ),
@@ -143,6 +153,16 @@ final class LintLocalizationTests: XCTestCase {
                     language: "en",
                     key: "NSHumanReadableCopyright",
                     type: .empty
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Not compiled translation",
+                    type: .equalToKey
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "nsloc1",
+                    type: .equalToKey
                 ),
                 TranslationError(
                     language: "es",
@@ -167,6 +187,16 @@ final class LintLocalizationTests: XCTestCase {
                 TranslationError(
                     language: "es",
                     key: "NSHumanReadableCopyright",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "Not compiled translation",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "nsloc1",
                     type: .empty
                 )
             ]
