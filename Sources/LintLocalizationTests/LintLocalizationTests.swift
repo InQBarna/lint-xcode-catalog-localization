@@ -80,6 +80,11 @@ final class LintLocalizationTests: XCTestCase {
                 ),
                 TranslationError(
                     language: "en",
+                    key: "Hello, world!",
+                    type: .equalToKey
+                ),
+                TranslationError(
+                    language: "en",
                     key: "Missing translation",
                     type: .equalToKey
                 )
@@ -90,8 +95,8 @@ final class LintLocalizationTests: XCTestCase {
     func testSwiftui() throws {
         let folderPath = try getFolderPath(mockName: "swiftui")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
-        try XCTAssertEqualDiff(
+        let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
+        XCTAssertEqual(
             errors,
             [
                 TranslationError(
@@ -121,8 +126,8 @@ final class LintLocalizationTests: XCTestCase {
     func testSwiftuiTwoLangs() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-twolangs")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
-        try XCTAssertEqualDiff(
+        let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
+        XCTAssertEqual(
             errors.sortedByLangKey,
             [
                 TranslationError(
@@ -153,12 +158,12 @@ final class LintLocalizationTests: XCTestCase {
                 TranslationError(
                     language: "en",
                     key: "Not compiled translation",
-                    type: .empty
+                    type: .equalToKey
                 ),
                 TranslationError(
                     language: "en",
                     key: "nsloc1",
-                    type: .empty
+                    type: .equalToKey
                 ),
                 TranslationError(
                     language: "es",
