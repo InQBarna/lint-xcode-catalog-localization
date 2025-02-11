@@ -95,7 +95,7 @@ final class LintLocalizationTests: XCTestCase {
     func testSwiftui() throws {
         let folderPath = try getFolderPath(mockName: "swiftui")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors,
             [
@@ -126,7 +126,7 @@ final class LintLocalizationTests: XCTestCase {
     func testSwiftuiTwoLangs() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-twolangs")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
         XCTAssertEqual(
             errors.sortedByLangKey,
             [
