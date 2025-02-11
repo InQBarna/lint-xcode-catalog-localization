@@ -145,7 +145,7 @@ struct LintLocalization: ParsableCommand {
             print("✅ Cleanup complete.")
         }
         
-        let detectedWithinXcodeBuildEnvironment = false
+        let detectedWithinXcodeBuildEnvironment = nil != ProcessInfo.processInfo.environment["SOURCE_ROOT"]
         let errors: [TranslationError]
         do {
             
