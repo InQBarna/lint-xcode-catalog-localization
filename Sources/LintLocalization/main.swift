@@ -45,21 +45,22 @@ enum LintLocalizationError: Error {
 }
 
 class XliffValidator {
-    func validateXliffFiles(at urls: [URL]) throws -> [TranslationError] {
+    func validateXliffFiles(at urls: [URL], checkEqualToKey: Bool) throws -> [TranslationError] {
         try urls.flatMap { url -> [TranslationError] in
             guard let language = url.lastPathComponent.components(separatedBy: ".").first else {
                 throw LintLocalizationError.fileWithInvalidExtension(url)
             }
             return validateXliffData(
                 try Data(contentsOf: url),
-                language: language
+                language: language,
+                checkEqualToKey: checkEqualToKey
             )
         }
     }
     
-    private func validateXliffData(_ data: Data, language: String) -> [TranslationError] {
+    private func validateXliffData(_ data: Data, language: String, checkEqualToKey: Bool) -> [TranslationError] {
         let parser = XMLParser(data: data)
-        let delegate = XliffParserDelegate(language: language)
+        let delegate = XliffParserDelegate(language: language, checkEqualToKey: checkEqualToKey)
         parser.delegate = delegate
         parser.parse()
         return delegate.errors
@@ -73,9 +74,11 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
     private var currentTargetState: String?
     private var currentElementName: String?
     private let language: String
+    private let checkEqualToKey: Bool
     
-    init(language: String) {
+    init(language: String, checkEqualToKey: Bool) {
         self.language = language
+        self.checkEqualToKey = checkEqualToKey
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
@@ -104,7 +107,7 @@ class XliffParserDelegate: NSObject, XMLParserDelegate {
 
         if trimmedTarget.isEmpty {
             errors.append(TranslationError(language: language, key: key, type: .empty))
-        } else if trimmedTarget == key {
+        } else if trimmedTarget == key && checkEqualToKey {
             errors.append(TranslationError(language: language, key: key, type: .equalToKey))
         } else if trimmedTargetState == "new" {
             errors.append(TranslationError(language: language, key: key, type: .newMeansNoLocalized))
@@ -129,11 +132,11 @@ func getXliffFilesPaths(from folderPath: String) throws -> [URL] {
 }
 
 struct LintLocalization: ParsableCommand {
-    @Argument(help: "The path to the .xcworkspace")
+    @Argument(help: "The path to the .xcodeproj or .xcworkspace")
     var workspaceOrProjectPath: String
     
-    // @Option(help: "Indicates wether string keys are added instead of base localization")
-    // var keys: Bool
+    @Flag(inversion: .prefixedNo, help: "Indicates whether to use string keys (default) or base localization identifiers. Use '--no-keys' if you don't use keys.")
+    var keys: Bool = true
     
     func run() throws {
         let uuid = UUID().uuidString
@@ -167,7 +170,7 @@ struct LintLocalization: ParsableCommand {
                 print("🗓️ Validating localizations")
                 let validator = XliffValidator()
                 let xliffPaths = try getXliffFilesPaths(from: tempFolder)
-                errors = try validator.validateXliffFiles(at: xliffPaths)
+                errors = try validator.validateXliffFiles(at: xliffPaths, checkEqualToKey: keys)
             }
         } catch {
             print("❌ Unexpected error: \(error.localizedDescription)")

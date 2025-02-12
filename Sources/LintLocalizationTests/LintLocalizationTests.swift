@@ -45,7 +45,21 @@ final class LintLocalizationTests: XCTestCase {
     func testFindMockDirectory() throws {
         let folderPath = try getFolderPath(mockName: "fmp-full-export")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: true)
+        try XCTAssertEqualDiff(
+            errors.first,
+            TranslationError(
+                language: "ca",
+                key: "",
+                type: .empty
+            )
+        )
+    }
+    
+    func testFindMockDirectoryNoKeys() throws {
+        let folderPath = try getFolderPath(mockName: "fmp-full-export")
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: false)
         try XCTAssertEqualDiff(
             errors.first,
             TranslationError(
@@ -59,7 +73,7 @@ final class LintLocalizationTests: XCTestCase {
     func testUntranslated() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-untranslated")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: true)
         try XCTAssertEqualDiff(
             errors,
             [
@@ -92,10 +106,46 @@ final class LintLocalizationTests: XCTestCase {
         )
     }
     
+    func testUntranslatedNoKeys() throws {
+        let folderPath = try getFolderPath(mockName: "swiftui-untranslated")
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: false)
+        try XCTAssertEqualDiff(
+            errors,
+            [
+                TranslationError(
+                    language: "en",
+                    key: "CFBundleName",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "NSHumanReadableCopyright",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Empty translation",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Hello, world!",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Missing translation",
+                    type: .newMeansNoLocalized
+                )
+            ]
+        )
+    }
+    
     func testSwiftui() throws {
         let folderPath = try getFolderPath(mockName: "swiftui")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: true)
         XCTAssertEqual(
             errors,
             [
@@ -123,10 +173,41 @@ final class LintLocalizationTests: XCTestCase {
         )
     }
     
+    func testSwiftuiNoKeys() throws {
+        let folderPath = try getFolderPath(mockName: "swiftui")
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: false)
+        XCTAssertEqual(
+            errors,
+            [
+                TranslationError(
+                    language: "en",
+                    key: "CFBundleName",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "NSHumanReadableCopyright",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Empty translation",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Missing translation",
+                    type: .newMeansNoLocalized
+                )
+            ]
+        )
+    }
+    
     func testSwiftuiTwoLangs() throws {
         let folderPath = try getFolderPath(mockName: "swiftui-twolangs")
         let xliffPaths = try getXliffFilesPaths(from: folderPath)
-        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: true)
         XCTAssertEqual(
             errors.sortedByLangKey,
             [
@@ -164,6 +245,87 @@ final class LintLocalizationTests: XCTestCase {
                     language: "en",
                     key: "nsloc1",
                     type: .equalToKey
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "CFBundleName",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "Empty translation",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "Hello, world!",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "Missing translation",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "NSHumanReadableCopyright",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "Not compiled translation",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "es",
+                    key: "nsloc1",
+                    type: .empty
+                )
+            ]
+        )
+    }
+    
+    func testSwiftuiTwoLangsNoKeys() throws {
+        let folderPath = try getFolderPath(mockName: "swiftui-twolangs")
+        let xliffPaths = try getXliffFilesPaths(from: folderPath)
+        let errors = try XliffValidator().validateXliffFiles(at: xliffPaths, checkEqualToKey: false)
+        XCTAssertEqual(
+            errors.sortedByLangKey,
+            [
+                TranslationError(
+                    language: "en",
+                    key: "CFBundleName",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Empty translation",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Hello, world!",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Missing translation",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "NSHumanReadableCopyright",
+                    type: .empty
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "Not compiled translation",
+                    type: .newMeansNoLocalized
+                ),
+                TranslationError(
+                    language: "en",
+                    key: "nsloc1",
+                    type: .newMeansNoLocalized
                 ),
                 TranslationError(
                     language: "es",
