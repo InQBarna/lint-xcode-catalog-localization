@@ -33,14 +33,13 @@ It also works for xcworkspaces
 mint run InQBarna/lint-xcode-catalog-localization WORKSPACE.xcworkspace
 ```
 
-### Optional Flag: `--no-keys`
+### Flag
 
-By default, the script checks for **string keys** in the localization files. If you prefer to use **base localization identifiers** instead of keys, you can disable the key-checking behavior with the `--no-keys` flag. This will prevent errors for keys that are equal to their respective values.
+By default, the script checks for matching keys and values, considering this an error when they are identical. To disable this, there's the `--no-keys` flag, allowing keys to be equal to their values
 
 ```
 mint run InQBarna/lint-xcode-catalog-localization PROJECT.xcodeproj --no-keys
 ```
-When `--no-keys` is not specified, **string keys** will be used by default.
 
 ## Installation and Usage cloning the repo
 
